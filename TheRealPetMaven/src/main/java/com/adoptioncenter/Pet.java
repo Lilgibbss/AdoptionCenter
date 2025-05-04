@@ -1,79 +1,46 @@
 package com.adoptioncenter;
 
-public class Pet {
-	private String ID;
+public abstract class Pet implements Comparable<Pet> {
     private String name;
     private String species;
-    private String subspecies;
     private int age;
     private Boolean adopted;
     
 
-    // Constructors, Getters, Setters
-    // Default constructor (for Gson)
-    public Pet() {}
-
-    // Full constructor
-    public Pet(String ID, String name, String species, String subspecies, int age, Boolean adopted) {
-        this.ID = ID;
-        this.name = name;
-        this.species = species;
-        this.subspecies = subspecies;
-        this.age = age;
-        this.adopted = adopted;
+    public Pet(String name, int age, String species) {
+    	this.name = name;
+    	this.age = age;
+    	this.species = species;
+    	this.adopted = false;
     }
 
-    // Getters and Setters
-    public String getID() {
-        return ID;
-    }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getSpecies() {
+		return species;
+	}
 
-    public String getSpecies() {
-        return species;
-    }
 
-    public void setSpecies(String species) {
-        this.species = species;
-    }
+	public int getAge() {
+		return age;
+	}
 
-    public String getSubspecies() {
-        return subspecies;
-    }
 
-    public void setSubspecies(String subspecies) {
-        this.subspecies = subspecies;
-    }
+	public boolean isAdopted() {
+		return adopted;
+	}
+	
+	public void adopt() {
+		adopted = true;
+	}
+	
+	@Override
+	public int compareTo(Pet other) {
+		return this.name.compareToIgnoreCase(other.name);
+	}
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Boolean getAdopted() {
-        return adopted;
-    }
-
-    public void setAdopted(Boolean adopted) {
-        this.adopted = adopted;
-    }
-
-    @Override
-    public String toString() {
-        return name + " (" + species + ", " + age + " yrs)";
-    }
 }
