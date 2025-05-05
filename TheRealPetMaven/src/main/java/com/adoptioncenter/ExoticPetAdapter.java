@@ -1,5 +1,9 @@
 package com.adoptioncenter;
 
+/**
+ * 
+ */
+
 public class ExoticPetAdapter extends Pet {
 	private ExoticAnimal exoticAnimal;
 	
