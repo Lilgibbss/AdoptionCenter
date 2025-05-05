@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import com.adoptioncenter.Cat;
+import com.adoptioncenter.Dog;
 import com.adoptioncenter.ExoticAnimal;
 import com.adoptioncenter.ExoticPetAdapter;
 import com.adoptioncenter.Pet;
@@ -14,6 +16,7 @@ import com.adoptioncenter.Shelter;
 import com.adoptioncenter.view.PetView;
 import com.adoptioncenter.PetAgeComparator;
 import com.adoptioncenter.PetSpeciesComparator;
+import com.adoptioncenter.Rabbit;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.FileWriter;
@@ -33,52 +36,52 @@ public class PetController {
     		Pet selectedPet = view.getSelectedPet();
     		
     		switch (command) {
-//    			case "Add":
-//    				String name = JOptionPane.showInputDialog(view, "Enter pet name: ");
-//    				if(name == null || name.trim().isEmpty()) {
-//    					JOptionPane.showMessageDialog(view, "Name Cannont be empty.");
-//    					break;
-//    				}
-//    				
-//    				String ageStr = JOptionPane.showInputDialog(view, "Enter Pet age: ");
-//    				int age;
-//    				try {
-//    					age = Integer.parseInt(ageStr);
-//    				} catch (NumberFormatException ex) {
-//    					JOptionPane.showMessageDialog(view, "Invalid age.");
-//    					break;
-//    				}
-//    				
-//    				String[] options = {"Dog", "Cat", "Rabbit", "Exotic"};
-//    				String species = (String) JOptionPane.showInputDialog(view, "Select species:", "Species", JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
-//    				
-//    				if(species == null) {
-//    					break;
-//    				}
-//    				
-//    				Pet newPet;
-//    				switch(species) {
-//    					case "Dog":
-//    						newPet = new Dog(name, age, species);
-//    						break;
-//    					case "Cat":
-//    						newPet = new Cat(name, age, species);
-//    						break;
-//    					case "Rabbit":
-//    						newPet = new Rabbit(name, age, species);
-//    						break;
-//    					case "Exotic":
-//    						ExoticAnimal exoticanimal = new ExoticAnimal(name, age, species);
-//    						newPet = new ExoticPetAdapter(exoticanimal);
-//    						break;
-//    					default:
-//    						JOptionPane.showMessageDialog(view, "Unknown species.");
-//    						return;
-//    						
-//    				}
-//    				
-//    				shelter.addPet(newPet);
-//    				break;
+    			case "Add":
+    				String name = JOptionPane.showInputDialog(view, "Enter pet name: ");
+    				if(name == null || name.trim().isEmpty()) {
+    					JOptionPane.showMessageDialog(view, "Name Cannont be empty.");
+    					break;
+    				}
+    				
+    				String ageStr = JOptionPane.showInputDialog(view, "Enter Pet age: ");
+    				int age;
+    				try {
+    					age = Integer.parseInt(ageStr);
+    				} catch (NumberFormatException ex) {
+    					JOptionPane.showMessageDialog(view, "Invalid age.");
+    					break;
+    				}
+    				
+    				String[] options = {"Dog", "Cat", "Rabbit", "Exotic"};
+    				String species = (String) JOptionPane.showInputDialog(view, "Select species:", "Species", JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+    				
+    				if(species == null) {
+    					break;
+    				}
+    				
+    				Pet newPet;
+    				switch(species) {
+    					case "Dog":
+    						newPet = new Dog(name, age);
+    						break;
+    					case "Cat":
+    						newPet = new Cat(name, age);
+    						break;
+    					case "Rabbit":
+    						newPet = new Rabbit(name, age);
+    						break;
+    					case "Exotic":
+    						ExoticAnimal exoticanimal = new ExoticAnimal(name, age, species);
+    						newPet = new ExoticPetAdapter(exoticanimal);
+    						break;
+    					default:
+    						JOptionPane.showMessageDialog(view, "Unknown species.");
+    						return;
+    						
+    				}
+    				
+    				shelter.addPet(newPet);
+    				break;
     				
     			case "Adopt":
     				if(selectedPet != null && !selectedPet.isAdopted()) {
