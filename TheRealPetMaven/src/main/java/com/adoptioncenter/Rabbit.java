@@ -1,8 +1,12 @@
 package com.adoptioncenter;
 
 public class Rabbit extends Pet {
-	public Rabbit(String name, int age) {
-		super(name, age, "Rabbit");
+	public Rabbit(int id, String name, int age, String species) {
+		super(name, age, species, id, "Cat");
+	}
+	public Rabbit() {
+		super();
+		setType("Rabbit");
 	}
 
 }

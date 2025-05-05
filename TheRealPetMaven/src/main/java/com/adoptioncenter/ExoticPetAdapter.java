@@ -12,7 +12,7 @@ public class ExoticPetAdapter extends Pet {
 	 * @param exoticAnimal the animal to adapt/wrap
 	 */
 	public ExoticPetAdapter(ExoticAnimal exoticAnimal) {
-		super(exoticAnimal.getName(), exoticAnimal.getAge(), exoticAnimal.getType());
+		super(exoticAnimal.getAnimalName(),exoticAnimal.getYearsOld(),exoticAnimal.getSubSpecies(),0,"Exotic");		
 		this.exoticAnimal = exoticAnimal;
 	}
 	
@@ -22,8 +22,8 @@ public class ExoticPetAdapter extends Pet {
 	 * @return true is animal is adopted
 	 */
 	@Override
-	public boolean isAdopted() {
-		return !exoticAnimal.isAvalible();
+	public Boolean isAdopted() {
+		return !exoticAnimal.isAvailable();
 	}
 	
 	/**
@@ -31,7 +31,13 @@ public class ExoticPetAdapter extends Pet {
 	 */
 	
 	@Override
-	public void adopt() {
-		exoticAnimal.adopted();
+	public void adopt(){
+		exoticAnimal.isAvailable();
+		this.setAdopted(true);
+		
+	}
+	
+	public ExoticAnimal getExoticAnimal() {
+		return exoticAnimal;
 	}
 }

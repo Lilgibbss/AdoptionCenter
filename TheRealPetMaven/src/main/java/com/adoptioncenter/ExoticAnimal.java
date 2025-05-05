@@ -1,38 +1,68 @@
 package com.adoptioncenter;
 
-//third party animal class
 public class ExoticAnimal {
-	private String nam3;
-	private int ag3;
-	private String type;
-	private boolean avalible;
-	
-	public ExoticAnimal(String name, int age, String type) {
-		this.nam3 = name;
-		this.ag3 = age;
-		this.type = type;
-		this.avalible = true;
+    private String uniqueId;      
+    private String animalName;    
+    private String category;       
+    private String subSpecies;    
+    private int yearsOld;         
+    private boolean available;
+
+    public ExoticAnimal(String uniqueId, String animalName, String category, String subSpecies, int yearsOld) {
+        this.uniqueId = uniqueId;
+        this.animalName = animalName;
+        this.category = category;
+        this.subSpecies = subSpecies;
+        this.yearsOld = yearsOld;
+        this.available = true;
+    }
+
+	public String getUniqueId() {
+		return uniqueId;
 	}
 
-	public String getName() {
-		return nam3;
+	public String getAnimalName() {
+		return animalName;
 	}
 
-	public int getAge() {
-		return ag3;
+	public String getCategory() {
+		return category;
 	}
 
-	public String getType() {
-		return type;
+	public String getSubSpecies() {
+		return subSpecies;
 	}
 
-	public boolean isAvalible() {
-		return avalible;
+	public int getYearsOld() {
+		return yearsOld;
 	}
-	
-	public void adopted() {
-		this.avalible = false;
+
+	public boolean isAvailable() {
+		return available;
 	}
-	
-	
+
+	public void setUniqueId(String uniqueId) {
+		this.uniqueId = uniqueId;
+	}
+
+	public void setAnimalName(String animalName) {
+		this.animalName = animalName;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public void setSubSpecies(String subSpecies) {
+		this.subSpecies = subSpecies;
+	}
+
+	public void setYearsOld(int yearsOld) {
+		this.yearsOld = yearsOld;
+	}
+
+	public void setAvailable(boolean available) {
+		this.available = available;
+	}
+    
 }
