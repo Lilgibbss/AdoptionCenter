@@ -53,35 +53,51 @@ public class PetController {
     				}
     				
     				String[] options = {"Dog", "Cat", "Rabbit", "Exotic"};
-    				String species = (String) JOptionPane.showInputDialog(view, "Select species:", "Species", JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+    				String type = (String) JOptionPane.showInputDialog(view, "Select species:", "Species", JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
     				
-    				if(species == null) {
+    				if(type == null) {
     					break;
     				}
     				
-    				Pet newPet;
-    				switch(species) {
-    					case "Dog":
-    						newPet = new Dog(name, age);
-    						break;
-    					case "Cat":
-    						newPet = new Cat(name, age);
-    						break;
-    					case "Rabbit":
-    						newPet = new Rabbit(name, age);
-    						break;
-    					case "Exotic":
-    						ExoticAnimal exoticanimal = new ExoticAnimal(name, age, species);
-    						newPet = new ExoticPetAdapter(exoticanimal);
-    						break;
-    					default:
-    						JOptionPane.showMessageDialog(view, "Unknown species.");
-    						return;
-    						
-    				}
-    				
-    				shelter.addPet(newPet);
-    				break;
+    			    Pet newPet;
+    			    int id = 0; // You can later replace this with a unique generator if needed
+    			    String species = "";
+
+    			    switch (type) {
+    			        case "Dog":
+    			            species = JOptionPane.showInputDialog(view, "Enter breed (species):");
+    			            if (species == null || species.trim().isEmpty()) species = "Unknown";
+    			            newPet = new Dog(id, name, age, species);
+    			            break;
+
+    			        case "Cat":
+    			            species = JOptionPane.showInputDialog(view, "Enter breed (species):");
+    			            if (species == null || species.trim().isEmpty()) species = "Unknown";
+    			            newPet = new Cat(id, name, age, species);
+    			            break;
+
+    			        case "Rabbit":
+    			            species = JOptionPane.showInputDialog(view, "Enter breed (species):");
+    			            if (species == null || species.trim().isEmpty()) species = "Unknown";
+    			            newPet = new Rabbit(id, name, age, species);
+    			            break;
+
+    			        case "Exotic":
+    			            String uniqueId = JOptionPane.showInputDialog(view, "Enter exotic ID:");
+    			            String category = JOptionPane.showInputDialog(view, "Enter category (e.g., Bird, Reptile):");
+    			            String subSpecies = JOptionPane.showInputDialog(view, "Enter sub-species:");
+    			            if (uniqueId == null) uniqueId = "unknown";
+    			            if (category == null) category = "unknown";
+    			            if (subSpecies == null) subSpecies = "unknown";
+
+    			            ExoticAnimal exoticAnimal = new ExoticAnimal(uniqueId, name, category, subSpecies, age);
+    			            newPet = new ExoticPetAdapter(exoticAnimal);
+    			            break;
+
+    			        default:
+    			            JOptionPane.showMessageDialog(view, "Unknown type.");
+    			            return;
+    			    }
     				
     			case "Adopt":
     				if(selectedPet != null && !selectedPet.isAdopted()) {
