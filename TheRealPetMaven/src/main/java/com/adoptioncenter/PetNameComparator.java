@@ -1,6 +1,5 @@
-package com.adoptioncenter.view;
+package com.adoptioncenter;
 
-import com.adoptioncenter.model.Pet;
 import java.util.Comparator;
 
 public class PetNameComparator implements Comparator<Pet> {

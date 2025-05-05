@@ -1,5 +1,6 @@
 package com.adoptioncenter;
 
+//third party animal class
 public class ExoticAnimal {
 	private String nam3;
 	private int ag3;
