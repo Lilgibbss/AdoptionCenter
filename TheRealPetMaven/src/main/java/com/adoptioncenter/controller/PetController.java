@@ -48,8 +48,17 @@ public class PetController {
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
             Pet selectedPet = view.getSelectedPet();
+            
+            /**
+             * switch case controlling the actions of all the buttons in the GUI
+             */
 
             switch (command) {
+            
+            	/**
+            	 * add case adds a pet to the list
+            	 * there is a switch statement inside the add case to determine the pet species
+            	 */
                 case "Add":
                     String name = JOptionPane.showInputDialog(view, "Enter pet name: ");
                     if (name == null || name.trim().isEmpty()) {
@@ -92,6 +101,10 @@ public class PetController {
                             if (species == null || species.trim().isEmpty()) species = "Unknown";
                             newPet = new Rabbit(id, name, age, species);
                             break;
+                            
+                        /**
+                         * exotic pets uniquely interface into the switch statement
+                         */
                         case "Exotic":
                             String uniqueId = JOptionPane.showInputDialog(view, "Enter exotic ID:");
                             String category = JOptionPane.showInputDialog(view, "Enter category (e.g., Bird, Reptile):");
@@ -110,6 +123,9 @@ public class PetController {
                     shelter.addPet(newPet);
                     break;
 
+                /**
+                 * adopt case sets pets adopted status to yes and leaves a message if used on already adopted pets 
+                 */
                 case "Adopt":
                     if (selectedPet != null && !selectedPet.isAdopted()) {
                         selectedPet.adopt();
@@ -119,6 +135,9 @@ public class PetController {
                     }
                     break;
 
+                /**
+                 * removes a pet
+                 */
                 case "Remove":
                     if (selectedPet != null) {
                         shelter.removePet(selectedPet);
@@ -126,6 +145,9 @@ public class PetController {
                     }
                     break;
 
+                /**
+                 * shows the selected pets information through getters
+                 */
                 case "View details":
                     if (selectedPet != null) {
                         StringBuilder details = new StringBuilder();
@@ -140,6 +162,9 @@ public class PetController {
                     }
                     break;
 
+                /**
+                 * saves pets to the JSON file
+                 */
                 case "Save":
                     Gson gson = new GsonBuilder().setPrettyPrinting().create();
                     String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());

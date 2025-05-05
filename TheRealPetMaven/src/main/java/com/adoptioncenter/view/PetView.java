@@ -65,7 +65,7 @@ public class PetView extends JFrame {
     /**
      * returns the sorting option.
      * 
-     * @return the sort catagory
+     * @return the sort category
      */
     public String getSelectedSort() {
     	return (String) sortCombo.getSelectedItem();

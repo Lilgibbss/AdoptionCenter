@@ -16,11 +16,15 @@ public class Main {
 	        SwingUtilities.invokeLater(() -> {
 	            Shelter<Pet> shelter = new Shelter<>();
 
-	            // Load pets from JSON
+	            /**
+	             *  Load pets from JSON
+	             */
 	            List<Pet> loadedPets = PetLoader.loadPets();
 	            loadedPets.forEach(shelter::addPet);
 
-	            // Load exotic pets from JSON
+	            /**
+	             *  Load exotic pets from JSON
+	             */
 	            List<Pet> loadedExotics = ExoticPetLoader.loadExotics();
 	            loadedExotics.forEach(shelter::addPet);
 
